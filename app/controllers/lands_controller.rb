@@ -46,6 +46,6 @@ class LandsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def land_params
-      params.require(:land).permit(:name, :attractions, :dining, :posts_id)
+      params.require(:land).permit(:name, :posts_id)
     end
 end

@@ -12,7 +12,7 @@ class LandsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create land" do
     assert_difference('Land.count') do
-      post lands_url, params: { land: { attractions: @land.attractions, dining: @land.dining, name: @land.name, posts_id: @land.posts_id } }, as: :json
+      post lands_url, params: { land: { name: @land.name, posts_id: @land.posts_id } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class LandsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update land" do
-    patch land_url(@land), params: { land: { attractions: @land.attractions, dining: @land.dining, name: @land.name, posts_id: @land.posts_id } }, as: :json
+    patch land_url(@land), params: { land: { name: @land.name, posts_id: @land.posts_id } }, as: :json
     assert_response 200
   end
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dinings
+  resources :attractions
   resources :lands
   resources :posts
   resources :users do
