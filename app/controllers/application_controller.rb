@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-  def authenticate_tokenputs "AUTHENTICATE JWT"
+  def authenticate_token
+    puts "AUTHENTICATE JWT"
     render json: {status: 401, message: "Cast Members Only"} unless decode_token(bearer_token)
   end
 
@@ -37,5 +38,5 @@ class ApplicationController < ActionController::API
     puts "params: #{params[:id]}"
     render json: {status: 401, message: "Cast Members Only"} unless get_current_user.id == params[:id].to_i
   end
-  
+
 end
