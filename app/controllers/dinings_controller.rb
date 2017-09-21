@@ -1,5 +1,5 @@
 class DiningsController < ApplicationController
-  before_action :set_dining, only: [:show, :update, :destroy]
+  before_action :set_dining, only: [:show]
 
   # GET /dinings
   def index

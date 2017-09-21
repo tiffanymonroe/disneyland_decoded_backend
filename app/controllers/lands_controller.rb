@@ -1,5 +1,5 @@
 class LandsController < ApplicationController
-  before_action :set_land, only: [:show, :update, :destroy]
+  before_action :set_land, only: [:show]
 
   # GET /lands
   def index
@@ -13,7 +13,7 @@ class LandsController < ApplicationController
     render json: @land
   end
 
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

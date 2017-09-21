@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show, :update, :destroy]
+  before_action :set_attraction, only: [:show]
 
   # GET /attractions
   def index
@@ -13,7 +13,7 @@ class AttractionsController < ApplicationController
     render json: @attraction
   end
 
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attraction
