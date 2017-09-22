@@ -46,6 +46,6 @@ class DiningsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dining_params
-      params.require(:dining).permit(:land_id, :name)
+      params.require(:dining).permit(:name)
     end
 end

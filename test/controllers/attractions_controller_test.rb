@@ -12,7 +12,7 @@ class AttractionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create attraction" do
     assert_difference('Attraction.count') do
-      post attractions_url, params: { attraction: { land_id: @attraction.land_id, name: @attraction.name } }, as: :json
+      post attractions_url, params: { attraction: { name: @attraction.name } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class AttractionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update attraction" do
-    patch attraction_url(@attraction), params: { attraction: { land_id: @attraction.land_id, name: @attraction.name } }, as: :json
+    patch attraction_url(@attraction), params: { attraction: { name: @attraction.name } }, as: :json
     assert_response 200
   end
 

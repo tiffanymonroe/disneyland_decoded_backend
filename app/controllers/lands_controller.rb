@@ -1,5 +1,5 @@
 class LandsController < ApplicationController
-  before_action :set_land, only: [:show, :update, :destroy]
+  before_action :set_land, only: [:show]
 
   # GET /lands
   def index
@@ -10,33 +10,12 @@ class LandsController < ApplicationController
 
   # GET /lands/1
   def show
-    render json: @land
+    land_attractions = @land.attractions
+    land_dining = @land.dinings
+
+    render json: {land: @land, attractions: land_attractions, dinings: land_dining}
   end
 
-  # POST /lands
-  def create
-    @land = Land.new(land_params)
-
-    if @land.save
-      render json: @land, status: :created, location: @land
-    else
-      render json: @land.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /lands/1
-  def update
-    if @land.update(land_params)
-      render json: @land
-    else
-      render json: @land.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /lands/1
-  def destroy
-    @land.destroy
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
