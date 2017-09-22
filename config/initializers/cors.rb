@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins ['disneyland-decoded.herokuapp.com', 'localhost:1955']
 
     resource '*',
       headers: :any,
