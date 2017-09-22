@@ -10,9 +10,11 @@ class LandsController < ApplicationController
 
   # GET /lands/1
   def show
-    render json: @land
-  end
+    land_attractions = @land.attractions
+    land_dining = @land.dinings
 
+    render json: {land: @land, attractions: land_attractions, dinings: land_dining}
+  end
 
 
   private
