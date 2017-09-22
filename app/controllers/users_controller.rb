@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users.to_json(include: :posts)
   end
 
   # GET /users/1
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user
     else
@@ -48,6 +49,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
   end
 
