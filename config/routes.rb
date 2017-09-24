@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :dinings, only: [:index, :show]
     resources :posts, only: [:index, :show]
   end
-  resources :posts, only: [:index, :show]
 
 
 

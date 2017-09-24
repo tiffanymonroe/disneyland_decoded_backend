@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = params[:user_id]
+  
 
     if @post.save
       render json: @post, status: :created
