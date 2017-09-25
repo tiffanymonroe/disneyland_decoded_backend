@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :lands, only: [:index, :show] do
     resources :attractions, only: [:index, :show]
     resources :dinings, only: [:index, :show]
-    resources :posts, only: [:index, :show]
   end
+  resources :posts, only: [:index, :show]
 
 
 
