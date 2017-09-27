@@ -3,14 +3,14 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.where(user_id:
-    params[:user_id])
-
+    @posts = Post.all
     render json: @posts
   end
 
   # GET /posts/1
   def show
+    @post = Post.where(user_id:
+    params[:user_id])
     render json: @post
   end
 
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = params[:user_id]
+
 
     if @post.save
       render json: @post, status: :created
