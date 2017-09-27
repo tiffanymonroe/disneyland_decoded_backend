@@ -3,14 +3,14 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.where(user_id:
+    params[:user_id])
+
     render json: @posts
   end
 
   # GET /posts/1
   def show
-    @post = Post.where(user_id:
-    params[:user_id])
     render json: @post
   end
 
