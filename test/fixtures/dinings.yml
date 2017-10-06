@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  land: one
 
 two:
   name: MyString
+  land: two
