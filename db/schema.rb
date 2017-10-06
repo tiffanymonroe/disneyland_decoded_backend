@@ -10,23 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922062546) do
+ActiveRecord::Schema.define(version: 20171006054526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"
+    t.bigint "land_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "land_id"
+    t.index ["land_id"], name: "index_attractions_on_land_id"
   end
 
   create_table "dinings", force: :cascade do |t|
     t.string "name"
+    t.bigint "land_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "land_id"
+    t.index ["land_id"], name: "index_dinings_on_land_id"
   end
 
   create_table "lands", force: :cascade do |t|
@@ -38,9 +40,12 @@ ActiveRecord::Schema.define(version: 20170922062546) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
+    t.bigint "land_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.index ["land_id"], name: "index_posts_on_land_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +55,8 @@ ActiveRecord::Schema.define(version: 20170922062546) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attractions", "lands"
+  add_foreign_key "dinings", "lands"
+  add_foreign_key "posts", "lands"
+  add_foreign_key "posts", "users"
 end

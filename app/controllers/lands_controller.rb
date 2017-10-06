@@ -1,5 +1,5 @@
 class LandsController < ApplicationController
-  before_action :set_land, only: [:show]
+  before_action :set_land, only: [:show,]
 
   # GET /lands
   def index
@@ -12,8 +12,9 @@ class LandsController < ApplicationController
   def show
     land_attractions = @land.attractions
     land_dining = @land.dinings
+    land_posts = @land.posts
 
-    render json: {land: @land, attractions: land_attractions, dinings: land_dining}
+    render json: {land: @land, attractions: land_attractions, dinings: land_dining, posts: land_posts}
   end
 
 
